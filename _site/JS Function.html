@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>Future Value</title>
+  </head>
+ <body>
+ 	<h1 style="font-size 32px; text-align:center">How much I can earn</h1>
+ 	<h2>the future value of a specific amont of money depends on Initial Investment, Interest Rate and Time</h2>
+ 	<p> FV = I*((1+R)^t)</p>
+ 	<p>I stands for Initial Investment. Let's assume $1,000 as initial investment at first</p>
+ 	<p>R stands for Interest Rate</p>
+ 	<p> t stands for time</p>
+ 	<p style="color:green; font-size: 26px">My Future value will be:</p>
+ 	<p id="demo"></p>
+ 
+<script>
+	function myFunction (Initial,interest,time){
+	  return Initial*((1+interest)^time);
+	}
+ 
+ document.getElementById("demo").innerHTML = myFunction(1000,0.1,6);
+</script>
+
+</body>
+</html>
+

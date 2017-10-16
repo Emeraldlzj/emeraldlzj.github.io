@@ -1,0 +1,15 @@
+---
+---
+.redParagraph{}
+p#redParagraph{
+	 		color:red;
+	 		font-size:32px;
+	 	}
+$mainColor:green;
+p.greenParagraph{
+	color:$mainColor;
+	font-size:36px;
+}
+
+
+	 	

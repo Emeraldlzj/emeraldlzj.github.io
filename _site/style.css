@@ -1,3 +1,7 @@
-p#redParagraph{
-	 		color:red;
-	 	}
+p#redParagraph {
+  color: red;
+  font-size: 32px; }
+
+p.greenParagraph {
+  color: green;
+  font-size: 36px; }

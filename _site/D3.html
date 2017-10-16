@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	 <meta charset="utf-8" />
+	 <title>My Cool Page</title>
+<link rel="stylesheet" href="style.css" />
+	 </head>
+	<body>
+		<h1>Hi Dave</h1>
+	    <p>Hello!</p>
+	    <p>Goodby!</p>
+	    <h2>
+	    	<a href="https://www.google.com/"> Click here to google</a>
+	    	<p style="color: red;"></p>
+	    	<p id="redParagraph"></p>
+	    </h2>
+	     <div>
+	     	Fist DIV
+	     </div>
+	     <span>
+	     	Frist Span
+	     </span>
+	     <span>
+	     	Second Span
+	     </span>
+<svg id="mySvg"></svg>
+
+<script src="https://d3js.org/d3.v4.min.js""></script>
+<script>
+	var svg = d3.select("#mySvg")
+	.attr("width", window.innerWidth)
+	.attr("height", window.innerHeight);
+    
+    
+    function draw(dataArray){
+    	var svg = d3.select("#mySvg");
+
+	var circles = svg.selectAll(".dot")
+	    .data(dataArray);
+	
+	circles.exit()
+	    .transition().duration(1000)
+	    .attr("r", 0)
+	    .remove();
+	
+	var enterCircles = circles.enter().append("circle")
+	 .attr("r", "0")
+	 .attr("cy", "50")
+	 .attr("cx", function(d, index){
+		return 50*(index + 1);
+      })
+     .attr("class", "dot");
+	
+     circles.merge(enterCircles)
+       .transition().duration(1000)
+       .attr("r", function(d){
+           return d;
+       })
+       .attr("fill", "green");
+
+    }
+    
+    draw([2,4,6,8]);
+
+</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+---
+layout: default
+title: My Homepage
+---
+<svg id="mySvg"></svg>
+
+<script src="https://d3js.org/d3.v4.min.js""></script>
+<script>
+	var svg = d3.select("#mySvg")
+	.attr("width", window.innerWidth)
+	.attr("height", window.innerHeight);
+    
+    
+    function draw(dataArray){
+    	var svg = d3.select("#mySvg");
+
+	var circles = svg.selectAll(".dot")
+	    .data(dataArray);
+	
+	circles.exit()
+	    .transition().duration(1000)
+	    .attr("r", 0)
+	    .remove();
+	
+	var enterCircles = circles.enter().append("circle")
+	 .attr("r", "0")
+	 .attr("cy", "50")
+	 .attr("cx", function(d, index){
+		return 50*(index + 1);
+      })
+     .attr("class", "dot");
+	
+     circles.merge(enterCircles)
+       .transition().duration(1000)
+       .attr("r", function(d){
+           return d;
+       })
+       .attr("fill", "green");
+
+    }
+    
+    draw([2,4,6,8]);
+
+</script>
