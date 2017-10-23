@@ -4,7 +4,7 @@ title: My Homepage
 ---
 <svg id="mySvg"></svg>
 
-<script src="https://d3js.org/d3.v4.min.js""></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 	var svg = d3.select("#mySvg")
 	.attr("width", window.innerWidth)
@@ -12,6 +12,43 @@ title: My Homepage
     
     
     function draw(dataArray){
+    	var labels = svg.selectAll(".label")
+    	.data(dataArray);
+
+    	labels.exit().remove();
+
+    	var enterLabels = labels.enter().append("text")
+    	    .attr("class","label")
+    	    .attr("y", "20")
+    	    .attr("font-size", "20px")
+    	    .attr("text-anchor", "middle")
+    	    .attr("x", function(d, index){
+    	    	return 50*(index + 1);
+    	    });
+
+    	    labels.merge(enterLabels)
+    	          .text(function(d){
+    	          	return d.country;
+    	          });
+
+    	
+}
+     d3.json("data.jason", function(error, data){
+     	console.log(data);
+        draw(data);
+
+  });
+       
+    console.log("hi!");
+
+
+
+</script>
+
+
+
+<!--Professor's example-->
+function draw(dataArray){
     	var svg = d3.select("#mySvg");
 
 	var circles = svg.selectAll(".dot")
@@ -41,4 +78,17 @@ title: My Homepage
     
     draw([2,4,6,8]);
 
-</script>
+
+var svg = d3.select("#mysvg")
+	.attr("width", window.innerWidth)
+	.attr("height", window.innerHeight);
+
+	svg.append(".dot")
+	.style("stroke", "gray")
+	.style("fill", "white")
+	.attr("r", 35)
+	.attr("cx", 425)
+	.attr("cy", 246)
+	.on("click", function(){d3.select(this).style("fill","magenta");});
+
+

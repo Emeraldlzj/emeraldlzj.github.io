@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title> homework</title>
+	<title>D3 homework</title>
 </head>
 
 
@@ -28,7 +28,9 @@
 		<!--Two Circles-->
 		<circle class="dot" fill="pink" cx="425" cy="246" r="35"/>
 		<circle class ="dot" fill="pink" cx="95" cy="246" r="35"/>
+		<!--Tears-->
 		<ellipse class ="tear" cx="385" cy="206" rx="20" ry="25" fill="#f7b239" />
+		<ellipse class ="tear" cx="383" cy="226" rx="20" ry="25" fill="#f7b239" />
 
 	</svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -64,36 +66,52 @@ svg.select(".sad")
 
 svg.select(".tear")
     .on("click",function(){
-        d3.select(this)
-			.style("fill","lightblue")
-            .attr("rx", 20)
-            .attr("ry", 25)
-            .attr("cx", 385)
-            .attr("cy", 206)
-            .transition()
-            .delay(100)
-            .duration(2000)
-			.attr("rx", 20)
-            .attr("ry", 25)
-            .attr("cx", 385)
-            .attr("cy", 606);
+   //      d3.select(this)
+			// .style("fill","lightblue")
+   //          .attr("rx", 20)
+   //          .attr("ry", 25)
+   //          .attr("cx", 385)
+   //          .attr("cy", 206)
+   //          .transition()
+   //          .delay(100)
+   //          .duration(2000)
+			// .attr("rx", 20)
+   //          .attr("ry", 25)
+   //          .attr("cx", 385)
+   //          .attr("cy", 606);
 
+    var tear = svg.selectAll(".tear")
+        .data([10, 4, 9]);
+
+        var entertear = tear.enter().append("ellipse")
+        	.attr("class", "tear")
+            .attr("cx", "385")
+            .attr("cy", function(d,index){
+        	    return 30 + index;
+           })
+           .attr("rx", "20")
+           .attr("ry", "25")
+           .attr("fill", "#f7b239");
+
+           tear.merge(entertear)
+               .transition().duration(1000)
+               .attr("cy", function(d){
+               return d;
+               })
+               .attr("fill", "#f7b239");
+           
+
+          //draw([2,4,6,8]);
 
     });
-
-//
-//circles.exit()
-//    .transition().duration(1000)
-//    .attr("r",0)
-//    .remove();
-
-
-
 
 </script>
 
 
-<h3>Click My cheek</h3>
+
+
+<h1>Click my cheek</h1>
+
 
 
 

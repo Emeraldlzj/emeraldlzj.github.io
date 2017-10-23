@@ -1,0 +1,40 @@
+[
+  {
+    "country": "usa",
+    "value": 4,
+    "color":"green"
+  },
+{
+	"country": "canada",
+	"value": 20,
+	"color":"yellow"
+}
+]
+
+
+var circles = svg.selectAll(".dot")
+	    .data(dataArray);
+	
+	circles.exit()
+	    .transition().duration(1000)
+	    .attr("r", 0)
+	    .remove();
+	
+	var enterCircles = circles.enter().append("circle")
+	 .attr("r", "0")
+	 .attr("cy", "50")
+	 .attr("cx", function(d, index){
+		return 50*(index + 1);
+      })
+     .attr("class", "dot");
+	
+     circles.merge(enterCircles)
+       .transition().duration(1000)
+       .attr("r", function(d){
+           return d;
+       })
+       .attr("fill", "green");
+
+    }
+    
+    draw([2,4,6,8]);
