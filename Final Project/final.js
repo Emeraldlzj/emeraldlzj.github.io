@@ -1,5 +1,5 @@
-d3.csv("final_data.csv", function(error,data){
+d3.csv("Final Project/final_data.csv", function(error,data){
 
-   console.log(data);
+   console.log(error, data);
 
 });
