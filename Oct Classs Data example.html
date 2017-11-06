@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+	<script src="Final Project/final.js">
+		d3.queue()
+		  .defer(d3.csv, "Final Project/final_data.csv")
+		  .defer(d3.csv, "data.csv")
+		  .awaitAll(function(error,data){
+		  	console.log(error,data);
+
+		  	var final_data = data[0]
+		  	final_data.ForEach(function(){
+		  		 console.log("here");
+		  	});
+		  });
+	</script>
+</body>
+
+</html>

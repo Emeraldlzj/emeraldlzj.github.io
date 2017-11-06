@@ -1,13 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-		<script src="https://d3js.org/d3.v4.min.js"></script>
-</head>
-<body>
-	<script src="Final Project/final.js">
-		
-	</script>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <Link href="Assignment5.css" rel="stylesheet" type="text/css">
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>My dataset</title>
+
+
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+
+ 
+
+
+  <body>
+
+
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Unreliable_Fake News Sites</h1>
+        <p></p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Visualization 1</h2>
+          <p>Bethane Middleton-Brown knows the pain the families and victims in Sunday’s mass shooting at a Texas church are feeling all too well. In June 2015, her sister, Rev. DePayne Middleton, was among the nine parishioners killed by a self-proclaimed white supremacist who had been welcomed at a Wednesday night Bible study class at Charleston’s Emanuel A.M.E. Church.
+            </P>
+
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Visualization 2</h2>
+          <p>In the wake of the tragedy at the First Baptist Church of Sutherland Springs, Texas, where 26 people — including 8 members of one family and children as young as 18-months-old — were killed by a shooter during Sunday services, Middleton-Brown has offered heartfelt prayer for the victims and their families in a statement to TIME. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Visualization 3</h2>
+          <p>Bethane Middleton-Brown knows the pain the families and victims in Sunday’s mass shooting at a Texas church are feeling all too well. In June 2015, her sister, Rev. DePayne Middleton, was among the nine parishioners killed by a self-proclaimed white supremacist who had been welcomed at a Wednesday night Bible study class at Charleston’s Emanuel A.M.E. Church.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+<script src="Final Project/final.js">
+	d3.queue()
+		.defer(d3.csv,"Final Project/final_data.csv")
+		.defer(d3.csv,"Final Project/final_data.csv")
+		.awaitAll(function(error,data){
+			var data =data[0];
+			data.forEach(function(d,i){
+				console.log(d,i);
+			
+		})
+			if (error) throw;
+			console.log(data);
+		});
+	</script>
+
+
+
+
+  </body>
 </html>
+
+
+
+		
