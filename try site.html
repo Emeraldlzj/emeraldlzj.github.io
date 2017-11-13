@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="Assignment5.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+ </head>
+  <body>
+    <svg id="mySvg" width="1200" height="739"></svg>
+  <script>
+    var svg=d3.select("#mySvg")
+        .attr("width", window.innerWidth)
+        .attr("height",window.innerHeight);
+//load data-- TopJason file--Convert TopJson to GeoJson
+    d3.json("world.json", function(error,data){
+      var geoJSON = topojson.feature(data,data.objects.countries);
+//Set up a projection
+      var proj=d3.geoMercator()
+        .fitSize([800, 400], geoJSON);
+
+      var path=d3.geoPath()
+        .projection(proj);
+      
+//pass a GeoJson Feature and return an SVG path
+     var countries =svg.selectAll("path")
+         .data(geoJSON.features);
+
+      countries.enter().append("path")
+         .attr("d", function(d){
+           return path(d);
+         })
+//Path to Coordinate Point
+         var points=[
+         {"name": "Boston","coords": [-71.0589, 42.3601]},
+         {"name": "London", "coords":[-0.1278, 51.5074]}
+         ];
+
+         var points=svg.selectAll("circle")
+             .data(points);
+         points.enter().append("circle")
+               .attr("r", 5)
+               .attr("fill" ,"red")
+               .attr("transform", function(d){
+                return "translate("+ proj(d.coords) + ")";
+               })
+     console.log(geoJSON);
+  });
+    
+   </script>
+    
+
+    
+
+  </body>
+</html>

@@ -1,86 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <Link href="Assignment5.css" rel="stylesheet" type="text/css">
-	<script src="https://d3js.org/d3.v4.min.js"></script>
-
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>My dataset</title>
-
-
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-
- 
-
-
-  <body>
-
-
-
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Unreliable_Fake News Sites</h1>
-        <p></p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-      </div>
-    </div>
-
+<head>
+  <meta charset="utf-8">
+  <title>Final Project</title>
+  <!--core css-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <!--Custom styles for this template-->
+  <link href="Assignment5.css" rel="stylesheet">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body data-gr-c-s-loaded="true">
+  <main role="main">
+  <!--Main jumbotron-->
+  <div class="jumbotron">
     <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Visualization 1</h2>
-          <p>Bethane Middleton-Brown knows the pain the families and victims in Sunday’s mass shooting at a Texas church are feeling all too well. In June 2015, her sister, Rev. DePayne Middleton, was among the nine parishioners killed by a self-proclaimed white supremacist who had been welcomed at a Wednesday night Bible study class at Charleston’s Emanuel A.M.E. Church.
-            </P>
+      <h1 class="display-3">Unreliable_Fake News dataset</h1>
+    <p>This dataset This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.<br/><br/>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+</div>
+</div>
+<!--3 Visualization Containers -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+    <h2>Visualization 1</h2>
+    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+    <p>
+      <a class="btn btn-secondary" href="#" role="button">View Details</a>
+    </p>
+ </div>
 
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Visualization 2</h2>
-          <p>In the wake of the tragedy at the First Baptist Church of Sutherland Springs, Texas, where 26 people — including 8 members of one family and children as young as 18-months-old — were killed by a shooter during Sunday services, Middleton-Brown has offered heartfelt prayer for the victims and their families in a statement to TIME. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Visualization 3</h2>
-          <p>Bethane Middleton-Brown knows the pain the families and victims in Sunday’s mass shooting at a Texas church are feeling all too well. In June 2015, her sister, Rev. DePayne Middleton, was among the nine parishioners killed by a self-proclaimed white supremacist who had been welcomed at a Wednesday night Bible study class at Charleston’s Emanuel A.M.E. Church.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
+  <div class="col-md-4">
+    <h2>Visualization 2</h2>
+    <p>Description for the V2, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
+    </p>
+    <p>
+      <a class="btn btn-secondary" href="#" role="button">View details</a>
+    </p>
+  </div>
 
-      <hr>
-<script src="Final Project/final.js">
-	d3.queue()
-		.defer(d3.csv,"Final Project/final_data.csv")
-		.defer(d3.csv,"Final Project/final_data.csv")
-		.awaitAll(function(error,data){
-			var data =data[0];
-			data.forEach(function(d,i){
-				console.log(d,i);
-			
-		})
-			if (error) throw;
-			console.log(data);
-		});
-	</script>
+  <div class="col-md-4">
+    <h2>Visualization 3</h2>
+    <p>This graph is for.... Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+    </p>
+    <p>
+      <a class="btn btn-secondary" href="#" role="button">View details</a>
+    </p>
+  </div>
+</div>
 
+<div class="row">
+  <div class="col-md-4" id="Pie-chart">
+    <div id="tooltip" class="hidden">
+      <p><span id="value">0</span></p>
+    </div>
+  </div>
+</div>
 
+<hr>
+</div>
+<!--/container-->
+</main>
+<footer class="container"></footer>
 
+<!--Placed at the end-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+></script>
 
-  </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+<script src="./Final Project/final.js"></script>
+
+</body>
 </html>
+
 
 
 
