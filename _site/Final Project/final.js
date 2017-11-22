@@ -1,7 +1,16 @@
-d3.csv("Final Project/Newscategory.csv", function(error,data){
+var data;
+var data2;
+d3.queue()
+  .defer(d3.csv, "Final Project/Newscategory.csv")
+  .defer(d3.csv, "Final Project/Top20.csv")
+  .awaitAll(function(error,allData){
+    //console.log(error, allData);
 
-   console.log(error, data);
+     data = allData[0];
+         data2= allData[1];
 
+         console.log(data);
+         console.log(data2);
    var width = 350,
     height = 400,
     radius = 150;
@@ -64,7 +73,69 @@ var svg = d3.select("#Pie-chart").append("svg")
         return (d.data["Percentage"] *100).toFixed(2) +"%"; 
       });
 
+
+// bar-chart
+
+  var svg = d3.select("#barchart"),
+    M = {top: 20, right: 20, bottom: 30, left: 125},
+    barWidth = +svg.attr("width") - M.left - M.right,
+    barHeight = +svg.attr("height") - M.top - M.bottom;
+  
+var tooltip = d3.select("#bars").append("div").attr("class", "toolTip");
+  
+var x = d3.scaleLinear().range([0, barWidth]);
+var y = d3.scaleBand().range([barHeight, 0]);
+
+var g = svg.append("g")
+    .attr("transform", "translate(" + M.left + "," + M.top + ")");
+  
+  
+    data2.sort(function(a, b) { return a["Google hits"] - b["Google hits"]; });
+    var max = d3.max(data2, function(d) { return d["Google hits"]; });
+    
+    x.domain([0, d3.max(data2, function(d) { return d["Google hits"]; })]);
+    y.domain(data2.map(function(d) { return d.Site; })).padding(0.1);
+
+    g.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + barHeight + ")")
+        .call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return parseInt(d / 1000); }).tickSizeInner([-height]));
+
+    g.append("g")
+        .attr("class", "y axis")
+        .call(d3.axisLeft(y));
+
+    g.selectAll(".bar")
+        .data(data2)
+      .enter().append("rect")
+        .attr("class", "bar")
+        .attr("x", 0)
+        .attr("height", 15)
+        .attr("y", function(d) { return y(d.Site); })
+        .attr("width", function(d) { return x(d["Google hits"]); })
+        .on("mouseover", function(d){
+          d3.select(this).style('fill','gold');
+          //var position = d3.mouse(this);
+            tooltip
+              .style("left", 400 + "px")
+              .style("top", 350 + "px")
+              .style("opacity", "1")
+              .html((d.Site) + "<br>" + "£" + (d["Google hits"]));
+        })
+        .on("mouseout", function(d){ 
+          d3.select(this).style('fill','steelblue');
+          tooltip.style("opacity", "0");});
+
 });
+
+ 
+ 
+
+
+
+
+
+
 
 
 

@@ -29,3 +29,34 @@ text{
 #Pie-chart{
 	min-height: 500px;
 }
+/*stacked bar chart*/
+.bar{
+	fill:steelblue;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #D4D8DA;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+.x path {
+	display: none;
+}
+.toolTip {
+	position: absolute;
+  min-width: 80px;
+  height: auto;
+  background: none repeat scroll 0 0 #ffffff;
+  border: 1px solid #6F257F;
+  padding: 14px;
+  text-align: center;
+  opacity: 0;
+  z-index: 1000;
+}
+.tick text{
+	font-family:scans-serif;
+	font-size:10px;
+	fill: black;
+}
