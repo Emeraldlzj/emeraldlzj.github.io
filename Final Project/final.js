@@ -3,14 +3,17 @@ var data2;
 d3.queue()
   .defer(d3.csv, "Final Project/Newscategory.csv")
   .defer(d3.csv, "Final Project/Top20.csv")
+  .defer(d3.csv, "Final Project/political50.csv")
   .awaitAll(function(error,allData){
     //console.log(error, allData);
 
      data = allData[0];
          data2= allData[1];
+        
 
          console.log(data);
          console.log(data2);
+//Pie Chart
    var width = 350,
     height = 400,
     radius = 150;

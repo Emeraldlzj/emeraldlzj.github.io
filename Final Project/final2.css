@@ -1,0 +1,17 @@
+
+
+#NYT{
+	padding-left:400px;
+}
+#tooltip{
+	position: absolute;
+	background-color: white;
+	opacity: 0;
+	min-width:200px;
+	min-height: 120px;
+	z-index: 200;
+	padding: 10px;
+}
+button{
+	text-align: center;
+}
