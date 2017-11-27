@@ -14,7 +14,7 @@ d3.queue()
          console.log(data);
          console.log(data2);
 //Pie Chart
-   var width = 350,
+   var width = 300,
     height = 400,
     radius = 150;
 
@@ -80,10 +80,10 @@ var svg = d3.select("#Pie-chart").append("svg")
 // bar-chart
 
   var svg = d3.select("#barchart"),
-    M = {top: 20, right: 20, bottom: 30, left: 125},
+    M = {top: 20, right: 10, bottom: 30, left: 125},
     barWidth = +svg.attr("width") - M.left - M.right,
     barHeight = +svg.attr("height") - M.top - M.bottom;
-  
+  console.log(barWidth);
 var tooltip = d3.select("#bars").append("div").attr("class", "toolTip");
   
 var x = d3.scaleLinear().range([0, barWidth]);
@@ -94,9 +94,9 @@ var g = svg.append("g")
   
   
     data2.sort(function(a, b) { return a["Google hits"] - b["Google hits"]; });
-    var max = d3.max(data2, function(d) { return d["Google hits"]; });
-    
-    x.domain([0, d3.max(data2, function(d) { return d["Google hits"]; })]);
+    var max = d3.max(data2, function(d) { return +d["Google hits"]; });
+    console.log(max);
+    x.domain([0,max]);
     y.domain(data2.map(function(d) { return d.Site; })).padding(0.1);
 
     g.append("g")
@@ -115,7 +115,7 @@ var g = svg.append("g")
         .attr("x", 0)
         .attr("height", 15)
         .attr("y", function(d) { return y(d.Site); })
-        .attr("width", function(d) { return x(d["Google hits"]); })
+        .attr("width", function(d) { return x(+d["Google hits"]); })
         .on("mouseover", function(d){
           d3.select(this).style('fill','gold');
           //var position = d3.mouse(this);
