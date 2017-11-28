@@ -96,9 +96,11 @@
                 })
                 .on('mouseover',function (d) {
                     d3.select(this)
-                      .style("fill", "gold");
+                      // .style("fill","gold")
+                      .style("opacity",0.6);
+                
 
-                    var position = d3.mouse(this);
+                  var position = d3.mouse(this);
                     console.log(position);
                     var tooltip = d3.select('#tooltip');
 
@@ -119,10 +121,11 @@
                 })
                 .on('mouseout', function () {
                     d3.select(this)
-                      .style("fill",function (d) {
-                    return colorScale(d["political alignment"]);
+                      .style("opacity",1)
+                //       .style("fill",function (d) {
+                //     return colorScale(d["political alignment"]);
 
-                } );
+                // } );
                     var tooltip = d3.select('#tooltip');
                     tooltip
                         .style('opacity', 0);
