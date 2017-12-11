@@ -8,6 +8,11 @@
   <!--Custom styles for this template-->
   <link href="Assignment5.css" rel="stylesheet">
   <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
+</script>
 </head>
 <body data-gr-c-s-loaded="true">
   <main role="main">
@@ -61,23 +66,20 @@
     <h2>Bubble Chart</h2>
     <p>This chart shows the top 20 media outlets’ category and political alignment distribution <br/>
     </p>
-    <p>
-      <a class="btn btn-secondary" href="./Final Project/final2.html" role="button">View details</a>
-    </p>
+  
   </div>
 </div>
-
-<iframe src="Final Project/final2.html" width="110%" height="350px"></iframe>
-
 </div>
-</div>
-
 <div>
 <hr>
 </div>
 <!--/container-->
+<div>
+<iframe src="Final Project/final2.html" width="100%" height="800px"  scrolling="no" id='iFrame1' onload="resizeIframe(this)"></iframe>
+</div>
 </main>
 <footer class="container"></footer>
+
 
 <!--Placed at the end-->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

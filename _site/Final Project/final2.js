@@ -34,9 +34,10 @@
         var forceY = d3.forceY(function(d){
             return height/2
         }).strength(0.1)
+        
         function colorScale(str) {
             if(str=='left'){
-                return '#0080FF'
+                return 'rgb(26, 140, 255)'
             } else if( str=='right'){
                 return '#FF3333'
             } else {

@@ -1,3 +1,7 @@
+iframe{
+	overflow: hidden;
+	border: none;
+}
 text{
 	font-family:scans-serif;
 	font-size:12px;
@@ -31,7 +35,7 @@ text{
 }
 /*stacked bar chart*/
 .bar{
-	fill:steelblue;
+	fill:rgb(26, 140, 255);
 }
 
 .axis path,
@@ -59,4 +63,16 @@ text{
 	font-family:scans-serif;
 	font-size:10px;
 	fill: black;
+}
+.jumbotron{
+	  background: url('https://www.dailydot.com/wp-content/uploads/bdd/9e/b784fb1ef4311b33-2044x1024.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+.container{
+	background-color: rgba(255,255,255,0.8);
 }

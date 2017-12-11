@@ -126,7 +126,7 @@ var g = svg.append("g")
               .html((d.Site) + "<br>" + "£" + (d["Google hits"]));
         })
         .on("mouseout", function(d){ 
-          d3.select(this).style('fill','steelblue');
+          d3.select(this).style('fill','rgb(26, 140, 255)');
           tooltip.style("opacity", "0");});
 
 });

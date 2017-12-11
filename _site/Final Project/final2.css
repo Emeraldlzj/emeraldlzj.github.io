@@ -5,9 +5,10 @@
 }
 #tooltip{
 	position: absolute;
+	right:0px;
 	background-color: white;
 	opacity: 0;
-	min-width:200px;
+	max-width:200px;
 	min-height: 120px;
 	z-index: 200;
 	padding: 10px;
